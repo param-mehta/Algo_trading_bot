@@ -7,51 +7,55 @@ This repository contains an algorithmic trading strategy implemented using the Z
 ## Features
 
 - Automated trading based on predefined conditions.
-- Integration with Zerodha Kite Connect API for executing trades across multiple accounts.
-- Historical data analysis for decision making.
+- Execute trades across multiple accounts.
+- Historical and live data analysis for decision making.
 - Supports multiple instruments including futures and options.
 
 ## Requirements
 
-To run the algorithmic trading strategy, you need the following:
+To run the trading strategy, you need to do the following:
 
-- Python 3.x
-- Zerodha Kite Connect API credentials
+- Get Zerodha Kite Connect API credentials from https://kite.trade/
 - Enable TOTP verification in your kite account
-- Required Python packages (specified in `requirements.txt`)
+- Install the dependencies as shown below
 
 ## Installation
 
-1. Clone this repository to your local machine:
+1.Make an environment
 
     ```bash
-    git clone https://github.com/yourusername/Algo_trading_bot.git
+    conda create --name algo_trading python=3.11.7
     ```
-
-2. Navigate to the project directory:
-
+    
+    ```bash
+    conda activate algo_trading
+    ```
+    
+2. Clone the repository and install dependencies:
+   
     ```bash
     cd algorithmic-trading-strategy
     ```
-
-3. Install the required Python packages:
+    
+    ```bash
+    git clone https://github.com/yourusername/Algo_trading_bot.git
+    ```
 
     ```bash
     pip install -r requirements.txt
     ```
 
-4. Configure your Zerodha Kite Connect API credentials in the appropriate configuration files.
 
 ## Usage
 
-1. Set up your Zerodha Kite Connect API credentials from https://kite.trade/
-2. Enable TOTP verification for your kite account
-3. After setting up the environment, run setup.py (do this just once)
-4. Every day before the market starts, run access_tokens.py and premarket.py 
-5. Run strategy.ipynb to initiate the strategy.
+1. Run env.sh to set environment variables
+2. Run setup.py (do this just once)
+3. Every day before the market starts, run access_tokens.py and premarket.py 
+4. Run strategy.py to deploy the strategy.
+5. Run app.py to monitor your trades
 
 
-## Configuration
+## Guide
 
  `config.py`:
 - Contains configuration settings such as API keys, account credentials.
