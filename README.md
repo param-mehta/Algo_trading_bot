@@ -55,12 +55,19 @@ To run the algorithmic trading strategy, you need the following:
 
  `config.py`:
 - Contains configuration settings such as API keys, account credentials.
- `utils.py`:
+
+`utils.py`:
 - Contains helper functions to place and modify orders, place gtt orders, calculate technical indicators such as bollinger bands and Volume Weighted Average Price.
 - It also has functions to fetch historical data and perform error handling.
 - While the helper functions are using the Kite Connect's python client, the main strategy code has been written in a way that one can switch to another platform's API with minimal changes.
- `access_tokens.py`:
+
+`access_tokens.py`:
 - This script uses Selenium to automate the process of logging into the account of kite and fetching the access_tokens for multiple accounts.
+
+`access_tokens.py`:
+- The script would stop when either the max no. of cycles is reached or when the trading session concludes. 
+`access_tokens.py`:
+`access_tokens.py`:
 
 ## Documentation
 
