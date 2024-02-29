@@ -6,10 +6,11 @@ This repository contains an algorithmic trading strategy implemented using the Z
 
 ## Features
 
-- Automated trading based on predefined conditions.
+- Automated trading based on predefined conditions. 
 - Execute trades across multiple accounts.
 - Historical and live data analysis for decision making.
 - Supports multiple instruments including futures and options.
+- Deploy complex strategies with a trailing stop loss, detect candlestick patterns like hammer and shooting star, place GTT (good till triggered) orders
 
 ## Requirements
 
@@ -21,7 +22,7 @@ To run the trading strategy, you need to do the following:
 
 ## Installation
 
-1.Make an environment
+1. Make an environment:
 
     ```bash
     conda create --name algo_trading python=3.11.7
@@ -48,34 +49,45 @@ To run the trading strategy, you need to do the following:
 
 ## Usage
 
-1. Run env.sh to set environment variables
-2. Run setup.py (do this just once)
-3. Every day before the market starts, run access_tokens.py and premarket.py 
-4. Run strategy.py to deploy the strategy.
-5. Run app.py to monitor your trades
+1. Run `env.sh` to set environment variables
+2. Run `setup.py` (do this just once)
+3. Every day before the market starts, run `access_tokens.py` and `premarket.py` 
+4. Run `strategy.py` to deploy the strategy
+5. Run `streamlit run app.py` to monitor your trades
 
 
 ## Guide
 
- `config.py`:
-- Contains configuration settings such as API keys, account credentials.
+`utils.py`: 
 
-`utils.py`:
-- Contains helper functions to place and modify orders, place gtt orders, calculate technical indicators such as bollinger bands and Volume Weighted Average Price.
-- It also has functions to fetch historical data and perform error handling.
-- While the helper functions are using the Kite Connect's python client, the main strategy code has been written in a way that one can switch to another platform's API with minimal changes.
+This contains helper functions to:
+- Place and modify normal orders, stop loss orders or gtt orders
+- Calculate technical indicators such as bollinger bands and Volume Weighted Average Price
+- Fetch historical data and perform error handling
+
+While the helper functions are using the Kite Connect's python client, the main strategy code has been written in a way that one can switch to another platform's API with minimal changes.
+
+`setup.py`:
+
+This script initializes the data structures and files needed to store trade details and trading parameters relevant to the strategy. 
 
 `access_tokens.py`:
-- This script uses Selenium to automate the process of logging into the account of kite and fetching the access_tokens for multiple accounts.
 
-`access_tokens.py`:
-- The script would stop when either the max no. of cycles is reached or when the trading session concludes. 
-`access_tokens.py`:
-`access_tokens.py`:
+This script uses Selenium to automate the process of logging into the account of kite and fetching the access_tokens for multiple accounts.
 
-## Documentation
+`premarket.py`:
 
-- Detailed documentation on the implementation of the trading strategy and usage instructions can be found in the `docs` directory.
+This script fetches daily instrument data and initializes files to store trade details and strategy paramters for a single trading session
+
+`strategy.py`:
+
+This script contains the main strategy loop that checks conditions, executes trades and updates the trailing stop loss. The script stops running when either the max no. of cycles is reached or when the trading session concludes. 
+
+`app.py`: 
+
+This contains a simple streamlit dashboard that displays the open positions, completed orders, failer orders and runtime errors.
+
+
 
 ## Disclaimer
 
