@@ -49,7 +49,7 @@ To run the trading strategy, you need to do the following:
 
 ## Usage
 
-1. Run `env.sh` to set environment variables
+1. Run `bash env.sh` to set environment variables
 2. Run `setup.py` (do this just once)
 3. Every day before the market starts, run `access_tokens.py` and `premarket.py` 
 4. Run `strategy.py` to deploy the strategy
