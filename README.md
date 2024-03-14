@@ -39,7 +39,7 @@ To run the trading strategy, you need to do the following:
     ```
     
     ```bash
-    git clone https://github.com/yourusername/Algo_trading_bot.git
+    git clone https://github.com/param-mehta/Algo_trading_bot.git
     ```
 
     ```bash
